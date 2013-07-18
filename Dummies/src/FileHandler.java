@@ -9,9 +9,12 @@
 
 
 import static java.lang.System.out;
+
 import java.util.Scanner;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.IOException;
+import java.io.FileWriter;
 
 public class FileHandler {
 	private String[] fileContents = new String[128];
@@ -55,5 +58,28 @@ public class FileHandler {
 				break;
 			}
 		}
+	}
+	
+	public void setLine(String line){
+		FileWriter output = null;
+	    try {	    	
+	      output = new FileWriter(this.fileName);
+	      @SuppressWarnings("resource")
+	      BufferedWriter writer = new BufferedWriter(output);
+	      writer.write(line);	
+	      
+	    } catch (Exception e) {	    	
+	      throw new RuntimeException(e);
+	      
+	    } finally {
+	      if (output != null) {	    	  
+	        try {
+	          output.close();
+	        } catch (IOException e) {
+	          // Ignore issues during closing
+	        }
+	      }
+	    }
+
 	}
 }
