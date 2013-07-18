@@ -1,3 +1,13 @@
+/**
+ * 	@author MigrenusMaximus
+ * 
+ * This class handles file input
+ * in a way specific to what is needed
+ * in the application
+ * 
+ */
+
+
 import static java.lang.System.out;
 import java.util.Scanner;
 import java.io.File;
@@ -9,8 +19,8 @@ public class FileHandler {
 	private Scanner fileHandle;
 	private String fileName;
 	
-	public String[] getFileContents() {
-		return fileContents;
+	public String getFileContents(int placeInArray) {
+		return fileContents[placeInArray];
 	}
 
 	public int getLineAmmount() {

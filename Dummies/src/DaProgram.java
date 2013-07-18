@@ -1,17 +1,30 @@
+/**
+ *  @author MigrenusMaximus
+ * 	
+ * This is the main executable class
+ * 
+ * 
+ */
+
+
 import java.io.IOException;
 
 public class DaProgram {
-	@SuppressWarnings("resource")
+	//@SuppressWarnings("resource")
 	public static void main(String[] args) throws IOException {
 		
-		FileHandler mahFile = new FileHandler();
-		String fileName;
-		fileName = new java.util.Scanner(java.lang.System.in).next();
-		java.lang.System.out.println(fileName);
+		EmployeeFromFile employeeFile = new EmployeeFromFile();
+		//String fileName;
 		
-		mahFile.setFileName(fileName);
-		mahFile.fileInit();
-		mahFile.getLines();
+		//java.lang.System.out.println("Which file would you like to access?");
+		//fileName = new java.util.Scanner(java.lang.System.in).next();
+		
+		employeeFile.setFileName("employees.txt");
+		employeeFile.fileInit();
+		employeeFile.getLines();
+		
+		employeeFile.empDataInit();
+		employeeFile.printEmployeeInfo();
 		
 	}
 }
