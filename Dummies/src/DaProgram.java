@@ -8,11 +8,14 @@
 
 import static java.lang.System.out;
 import static java.lang.System.in;
+
 import java.util.Scanner;
 import java.io.IOException;
 
 public class DaProgram {
 	public static void main(String[] args) throws IOException {
+		KeyPrinter output = new KeyPrinter();
+
 		int keyBitValue = 0;
 		KeyGenerator[] key = new KeyGenerator[5];
 		for (int i = 0; i < 5; i++){
@@ -22,15 +25,9 @@ public class DaProgram {
 			key[i].makeKey(); 						//cause it's impossible to make a combination with that value
 		}
 		
-		for (int i = 0; i < 5; i++){
-			if(i == 4){
-				key[i].printKey();
-				break;
-			}
-			
-			key[i].printKey();
-			out.print("-");
-			
-		}
+		output.keyToFile("keygen_test.txt", 5, key);
+		output.keyToConsole(5, key);
+		
+		
 	}
 }

@@ -8,12 +8,17 @@
  * 
  */
 
-import java.util.Random;
 import static java.lang.System.out;
+import java.io.IOException;
+import java.io.FileWriter;
+import java.io.PrintWriter;
+import java.util.Random;
 
-public class KeyGenerator extends FileHandler {
+public class KeyGenerator {
 	private char[] key = new char[5];
 	private int keyValue;
+	
+	public KeyGenerator(){}
 	
 	public KeyGenerator(int keyValue){
 		this.keyValue = keyValue;
@@ -33,9 +38,36 @@ public class KeyGenerator extends FileHandler {
 		}
 	}
 	
-	public void printKey() {
-		for (int i = 0; i < 5; i++){
+	public void printKey(int keyBitSize, boolean isLastBit) {
+		
+		for(int i = 0; i < keyBitSize; i++){
 			out.print(this.key[i]);
 		}
+		
+		if(!isLastBit){
+			out.print("-");
+		} else {
+			out.println();
+		}
+		
 	}
+	
+	
+	public void keyToFile(String fileName, int keyBitSize, boolean isLastBit) throws IOException {
+		PrintWriter to_file = new PrintWriter(new FileWriter(fileName, true)); 
+		
+		for(int i = 0; i < keyBitSize; i++){
+			to_file.print(this.key[i]);
+		}
+		
+		if(!isLastBit){
+			to_file.print("-");
+		} else {
+			to_file.println();
+		}
+		
+		to_file.flush();
+		to_file.close();
+	}	
+	
 }
