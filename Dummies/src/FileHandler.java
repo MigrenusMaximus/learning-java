@@ -37,16 +37,24 @@ public class FileHandler {
 	public String getFileName() {
 		return fileName;
 	}
-
-	public void setFileName(String fileName) {
-		this.fileName = fileName;
-	}
 	
-	public void fileInit() throws IOException {
+	public void fileInit(String fileName) throws IOException {
+		this.fileName = fileName;
 		this.fileHandle = new Scanner(new File(this.fileName));
 	}
 	
 	public void getLines() {
+		for (int i = 0; i < 128; i++) {
+			this.fileContents[i] = this.fileHandle.nextLine();
+			
+			if (!this.fileHandle.hasNextLine()) {
+				this.lineAmmount = i + 1;
+				break;
+			}
+		}
+	}
+	
+	public void getLinesWithComment() {
 		for (int i = 0; i < 128; i++) {
 			this.fileContents[i] = this.fileHandle.nextLine();
 			

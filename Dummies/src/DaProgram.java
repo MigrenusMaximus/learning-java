@@ -14,6 +14,7 @@ import java.io.IOException;
 
 public class DaProgram {
 	public static void main(String[] args) throws IOException {
+		/*
 		KeyPrinter output = new KeyPrinter();
 
 		int keyBitValue = 0;
@@ -27,7 +28,11 @@ public class DaProgram {
 		
 		output.keyToFile("keygen_test.txt", 5, key);
 		output.keyToConsole(5, key);
+		*/
 		
+		KeyCracker test = new KeyCracker();
+		
+		test.crackFromFile("keygen.txt", 0, "-");
 		
 	}
 }

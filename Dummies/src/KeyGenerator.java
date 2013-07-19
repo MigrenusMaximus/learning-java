@@ -24,10 +24,18 @@ public class KeyGenerator {
 		this.keyValue = keyValue;
 	}
 	
-	public void makeKey() {
+	public int findKeyValue(int keyBitChars){
+		int value = 0;
+		for (int i = 0; i < keyBitChars; i++){
+			value += this.key[i];
+		}
+		return value;
+	}
+	
+	public void makeKey(int keyBitChars, int keyValue) {
 		int placeHolder = 0;
-		while (key[0]+key[1]+key[2]+key[3]+key[4]!=this.keyValue){
-			for (int i = 0; i < 5; i++){
+		while (keyValue != this.keyValue){
+			for (int i = 0; i < keyBitChars; i++){
 				placeHolder = 0;
 				while ( !((placeHolder >= 48 && placeHolder <= 57) || 
 						(placeHolder >= 65 && placeHolder <= 90)) ) {
