@@ -17,10 +17,14 @@ import java.io.IOException;
 public class DaProgram {
 	public static void main(String[] args) throws IOException {
 		
-		KeyGenerator key = new KeyGenerator(5, 5, 350);
+		/*KeyGenerator key = new KeyGenerator(5, 5, 350);
 		key.makeKey();
 		key.printKey();
 		key.keyToFile("keygen.txt");
+		*/
+		
+		KeyCheckFrame test = new KeyCheckFrame();
+		test.KeyGetFrame();
 		
 	}
 }
