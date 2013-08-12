@@ -1,3 +1,4 @@
+package com.migrenus.dummies.pack;
 import static java.lang.System.out;
 
 public class EmployeeFromFile extends FileHandler {

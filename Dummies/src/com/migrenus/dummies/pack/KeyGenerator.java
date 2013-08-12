@@ -1,15 +1,5 @@
-/*
- * 0-9 == 48-57
- * A-Z == 65-90
- * a-z == 97-122
- * 
- * median == 90
- * final = noOfChars * median;
- * 
- */
-
+package com.migrenus.dummies.pack;
 import static java.lang.System.out;
-
 import java.io.IOException;
 import java.io.FileWriter;
 import java.io.PrintWriter;
@@ -51,8 +41,6 @@ public class KeyGenerator {
 					placeHolder = new Random().nextInt(122) + 1;
 				}
 				this.keyBit[i] = (char) placeHolder;
-				//out.println("hljeb");
-				//out.print(keyBit[i]);
 			}
 		}
 		return String.copyValueOf(this.keyBit);
@@ -66,6 +54,10 @@ public class KeyGenerator {
 				this.key += this.makeKeyBit(this.keyBitChars, this.keyBitValue);
 			}
 		}
+	}
+	
+	public String getKey(){
+		return this.key;
 	}
 	
 	public void printKey() {		

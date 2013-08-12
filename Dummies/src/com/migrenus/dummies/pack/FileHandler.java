@@ -1,3 +1,4 @@
+package com.migrenus.dummies.pack;
 /**
  * 	@author MigrenusMaximus
  * 

@@ -1,3 +1,5 @@
+package com.migrenus.dummies.pack;
+/*
 import java.io.IOException;
 import java.util.StringTokenizer;
 
@@ -29,7 +31,7 @@ public class KeyCracker {
 			
 		}
 		
-		/*
+		
 		for (int i = 0; i < keyBits; i++){
 			char[] tester = new char[keyCharBits];
 			for (int j = 0; j < keyCharBits; j++){
@@ -37,7 +39,7 @@ public class KeyCracker {
 					tester[i] = testCase[i].makeKey(keyCharBits, 350); 
 				} while (tester[i].key[] != this.testCase[i].key[]);
 			}
-		}*/
+		}
 		
 	}
 	
