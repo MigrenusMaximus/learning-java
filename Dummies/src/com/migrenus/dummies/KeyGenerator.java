@@ -1,4 +1,5 @@
-package com.migrenus.dummies.pack;
+package com.migrenus.dummies;
+
 import static java.lang.System.out;
 import java.io.IOException;
 import java.io.FileWriter;

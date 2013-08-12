@@ -1,4 +1,5 @@
-package com.migrenus.dummies.pack;
+package com.migrenus.dummies;
+
 /*
 import java.io.IOException;
 
