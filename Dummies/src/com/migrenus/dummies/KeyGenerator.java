@@ -75,6 +75,6 @@ public class KeyGenerator {
 		to_file.print("\n");
 		to_file.flush();
 		to_file.close();
-	}	
+	}
 	
 }

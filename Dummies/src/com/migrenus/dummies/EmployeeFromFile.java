@@ -14,8 +14,6 @@ public class EmployeeFromFile extends FileHandler {
 	}
 	
 	public void empDataInit() {
-
-		this.getLines();
 		
 		for (int i = 0; i < this.getLineAmmount(); i+=3){
 			

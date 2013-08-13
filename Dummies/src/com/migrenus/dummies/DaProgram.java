@@ -22,10 +22,12 @@ public class DaProgram {
 		key.printKey();
 		key.keyToFile("keygen.txt");
 		*/
+	
+		KeyCheckFrame asd = new KeyCheckFrame();
+		asd.keyGetFrame();
 		
-		KeyOwners owners = new KeyOwners();
-		owners.assignKeysToEmployees();
-		owners.sendDataToFile();
+//		KeyOwners owners = new KeyOwners();	owners.assignKeysToEmployees();
+//		owners.sendDataToFile();
 		
 	}
 }

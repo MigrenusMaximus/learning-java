@@ -43,11 +43,12 @@ public class FileHandler {
 	public void fileInit(String fileName) throws IOException {
 		this.fileName = fileName;
 		this.fileHandle = new Scanner(new File(this.fileName));
+		this.getLines();
 	}
 	
 	public void getLines() {
 		for (int i = 0; i < 128; i++) {
-			this.fileContents[i] = this.fileHandle.nextLine();
+			this.fileContents[i] = this.fileHandle.nextLine().toString();
 			
 			if (!this.fileHandle.hasNextLine()) {
 				this.lineAmmount = i + 1;
@@ -58,7 +59,7 @@ public class FileHandler {
 	
 	public void getLinesWithComment() {
 		for (int i = 0; i < 128; i++) {
-			this.fileContents[i] = this.fileHandle.nextLine();
+			this.fileContents[i] = this.fileHandle.nextLine().toString();
 			
 			if (!this.fileHandle.hasNextLine()) {
 				this.lineAmmount = i + 1;
