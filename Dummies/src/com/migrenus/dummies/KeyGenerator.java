@@ -48,6 +48,8 @@ public class KeyGenerator {
 	}
 	
 	public void makeKey(){
+		this.key = "";
+		
 		for (int i = 0; i < this.keyBits; i++){
 			if (i != this.keyBits - 1){
 				this.key += this.makeKeyBit(this.keyBitChars, this.keyBitValue) + "-";

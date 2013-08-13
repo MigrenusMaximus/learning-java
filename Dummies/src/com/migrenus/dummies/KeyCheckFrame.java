@@ -16,12 +16,11 @@ public class KeyCheckFrame extends JFrame {
 	public void KeyGetFrame() throws IOException {
 		
 		keys.fileInit("keygen.txt");
-		keys.getLinesWithComment();
 
 		this.setTitle("Mah KEEEEEEEEEEEEEEEEEYS");
 		this.setLayout(new GridLayout(keys.getLineAmmount(), 1, 20, 0));
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		this.setSize(350, 20*keys.getLineAmmount());
+		this.setSize(250, 20*keys.getLineAmmount());
 		this.addInfo();
 		
 		//this.pack();

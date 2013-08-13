@@ -23,8 +23,9 @@ public class DaProgram {
 		key.keyToFile("keygen.txt");
 		*/
 		
-		KeyCheckFrame test = new KeyCheckFrame();
-		test.KeyGetFrame();
+		KeyOwners owners = new KeyOwners();
+		owners.assignKeysToEmployees();
+		owners.sendDataToFile();
 		
 	}
 }
