@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -25,13 +26,16 @@ public class KeyCheckFrame extends JFrame implements ActionListener {
 	private KeyChecker check = new KeyChecker();
 	private JLabel correct = new JLabel("\nThe key is correct.");
 	private JLabel notCorrect = new JLabel("\nThe key is not correct.");
+	private JLabel[] keyLabel;
 	
-	JTextField textField = new JTextField(20);
+	JTextField textField = new JTextField(0);
 	JButton button = new JButton("Guess");
 	
 	public void keyGetFrame() throws IOException {
 		
-		keys.fileInit("keygen.txt");
+		this.keys.fileInit("keygen.txt");
+		
+		this.setSize(350, 275);
 		
 		this.setLayout(new BoxLayout(this.getContentPane(), BoxLayout.PAGE_AXIS));
 		this.setTitle("Mah KEEEEEEEEEEEEEEEEEYS");
@@ -39,20 +43,35 @@ public class KeyCheckFrame extends JFrame implements ActionListener {
 		this.add(button);
 		
 		this.textField.setAlignmentX(CENTER_ALIGNMENT);
+		this.textField.setPreferredSize(new Dimension(200, 25));
 		this.button.setAlignmentX(CENTER_ALIGNMENT);
 		
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.button.addActionListener(this);
 		this.addInfo();
 
-		this.pack();
+//		this.setSize(350, 500);
+		
+//		this.pack();
 		this.setVisible(true);
 		}
 		
 	private void addInfo() {
+		
+		this.keyLabel = new JLabel[keys.getLineAmmount()];
+		
 		for (int i = 0; i < keys.getLineAmmount(); i++){
-			add(new JLabel(keys.getFileContents(i)));
-			add(new JLabel("\n"));
+			
+			this.keyLabel[i] = new JLabel("null");
+			
+		}
+		
+		for (int i = 0; i < keys.getLineAmmount(); i++){
+			
+			this.keyLabel[i].setText(keys.getFileContents(i));
+			this.add(this.keyLabel[i]);
+			this.keyLabel[i].setAlignmentX(CENTER_ALIGNMENT);
+			
 		}
 	}
 
@@ -76,11 +95,11 @@ public class KeyCheckFrame extends JFrame implements ActionListener {
 			
 			if (check.checkKey(testKey) == true) {
 				this.textField.setText("");
-				this.pack();
+//				this.pack();
 				this.correct.setVisible(true);
 			} else {
 				this.textField.setText("");
-				this.pack();
+//				this.pack();
 				this.notCorrect.setVisible(true);
 			}
 			
