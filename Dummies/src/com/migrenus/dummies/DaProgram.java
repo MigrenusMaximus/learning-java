@@ -16,18 +16,9 @@ import java.io.IOException;
 @SuppressWarnings("unused")
 public class DaProgram {
 	public static void main(String[] args) throws IOException {
-		
-		/*KeyGenerator key = new KeyGenerator(5, 5, 350);
-		key.makeKey();
-		key.printKey();
-		key.keyToFile("keygen.txt");
-		*/
 	
-		KeyCheckFrame asd = new KeyCheckFrame();
+		KeyFrame asd = new KeyFrame();
 		asd.keyGetFrame();
-		
-//		KeyOwners owners = new KeyOwners();	owners.assignKeysToEmployees();
-//		owners.sendDataToFile();
 		
 	}
 }
