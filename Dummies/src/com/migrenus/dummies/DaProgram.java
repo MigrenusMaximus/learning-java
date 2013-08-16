@@ -17,12 +17,17 @@ import java.io.IOException;
 public class DaProgram {
 	public static void main(String[] args) throws IOException {
 	
-		KeyOwners asd = new KeyOwners();
-		asd.assignKeysToEmployees();
-		asd.sendDataToFile();
+//		EmployeeFromFile asd = new EmployeeFromFile();
+//		asd.empDataInit();
+//		asd.assignKeysToEmployees();
+//		asd.sendDataToFile();
+//		asd.printEmployeeInfo();
 		
 //		KeyFrame asd = new KeyFrame();
 //		asd.keyGetFrame();
+		
+		EmployeeLoginFrame asd = new EmployeeLoginFrame();
+		asd.frameInit();
 		
 	}
 }

@@ -7,6 +7,8 @@ import java.io.IOException;
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JButton;
+import javax.swing.JTextField;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -15,8 +17,6 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
-import javax.swing.JTextField;
 
 @SuppressWarnings({ "serial", "unused" })
 
@@ -54,7 +54,7 @@ public class KeyFrame extends JFrame {
 		this.setPreferredSize(new Dimension(350, 100));
 		
 		this.setLayout(new FlowLayout());
-		this.setTitle("Mah KEEEEEEEEEEEEEEEEEYS");
+		this.setTitle("Key Checker");
 		this.add(textField);
 		this.add(checkButton);
 		this.add(viewKeysButton);

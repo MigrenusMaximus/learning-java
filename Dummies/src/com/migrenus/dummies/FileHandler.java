@@ -14,13 +14,14 @@ import static java.lang.System.out;
 
 import java.util.Scanner;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.FileWriter;
 import java.io.PrintStream;
 import java.io.PrintWriter;
 
 public class FileHandler {
-	private String[] fileContents = new String[128];
+	private String[] fileContents;
 	private int lineAmmount = 0;
 	private Scanner fileHandle;
 	private String fileName;
@@ -56,29 +57,54 @@ public class FileHandler {
 		this.getLines();
 	}
 	
-	public void getLines() {
-		for (int i = 0; i < 128; i++) {
-			this.fileContents[i] = this.fileHandle.nextLine().toString();
-			
-			if (!this.fileHandle.hasNextLine()) {
-				this.lineAmmount = i + 1;
+	public void getLines() throws FileNotFoundException {
+		@SuppressWarnings("unused")
+		String placeHolder = " ";
+		int noOfLines = 0;
+		Scanner bread = new Scanner(new File(this.fileName));
+		
+		for (;;) {
+			placeHolder = bread.nextLine().toString();
+			noOfLines++;
+			if (!bread.hasNextLine()) {
+				this.lineAmmount = noOfLines + 1;
+				bread.close();
 				break;
 			}
+		}
+		
+		this.fileContents = new String[this.lineAmmount];
+		
+		for (int i = 0; i < this.lineAmmount - 1; i++) {
+			this.fileContents[i] = this.fileHandle.nextLine().toString();
 		}
 	}
 	
-	public void getLinesWithComment() {
-		for (int i = 0; i < 128; i++) {
-			this.fileContents[i] = this.fileHandle.nextLine().toString();
-			
-			if (!this.fileHandle.hasNextLine()) {
-				this.lineAmmount = i + 1;
+	public void getLinesWithComment() throws FileNotFoundException {
+		
+		String placeHolder = " ";
+		int noOfLines = 0;
+		Scanner bread = new Scanner(new File(this.fileName));
+		
+		for (;;) {
+			placeHolder = bread.nextLine().toString();
+			noOfLines++;
+			if (!bread.hasNextLine()) {
+				this.lineAmmount = noOfLines + 1;
 				out.println("End of file.");
 				out.println("The file " + this.fileName + " has " + this.lineAmmount + " lines.");
-				out.println("\"" + this.fileContents[i] + "\"" + " is the last line of the file.");
+				out.println("\"" + placeHolder + "\"" + " is the last line of the file.");
+				bread.close();
 				break;
 			}
 		}
+		
+		this.fileContents = new String[this.lineAmmount];
+		
+		for (int i = 0; i < this.lineAmmount - 1; i++) {
+			this.fileContents[i] = this.fileHandle.nextLine().toString();
+		}
+		
 	}
 	
 	public void setLineLn(String line, boolean firstLine) throws IOException {
@@ -107,6 +133,10 @@ public class FileHandler {
 			to_file.close();
 		}
 		
+	}
+	
+	public void closeOpenFile(){
+		this.fileHandle.close();
 	}
 
 }

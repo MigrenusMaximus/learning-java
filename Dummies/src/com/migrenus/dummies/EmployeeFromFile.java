@@ -2,20 +2,27 @@ package com.migrenus.dummies;
 
 import static java.lang.System.out;
 
+import java.io.IOException;
+
 public class EmployeeFromFile extends FileHandler {
 	
-	public String[] name = new String[128];
-	public String[] surname = new String[128];
-	private double[] paySize = new double[128];
+	public String[] name;
+	public String[] surname;
+	private double[] paySize;
 	public int noOfEmployees;
 	
 	public double getPaySize(int placeInArray) {
 		return paySize[placeInArray];
 	}
 	
-	public void empDataInit() {
+	public void empDataInit() throws IOException {
 		
-		for (int i = 0; i < this.getLineAmmount(); i+=3){
+		this.fileInit("employees.txt");
+		this.name = new String[this.getLineAmmount()/3];
+		this.surname = new String[this.getLineAmmount()/3];
+		this.paySize = new double[this.getLineAmmount()/3];
+		
+		for (int i = 0; i < this.getLineAmmount() - 1; i+=3){
 			
 			this.name[i/3] = this.getFileContents(i);
 			this.surname[i/3] = this.getFileContents(i+1);
@@ -24,6 +31,26 @@ public class EmployeeFromFile extends FileHandler {
 		}
 		
 		this.noOfEmployees = (this.getLineAmmount()/3);
+		this.closeOpenFile();
+	}
+	
+public void empDataInit(String fileName) throws IOException {
+		
+		this.fileInit(fileName);
+		this.name = new String[this.getLineAmmount()/3];
+		this.surname = new String[this.getLineAmmount()/3];
+		this.paySize = new double[this.getLineAmmount()/3];
+		
+		for (int i = 0; i < this.getLineAmmount() - 1; i+=3){
+			
+			this.name[i/3] = this.getFileContents(i);
+			this.surname[i/3] = this.getFileContents(i+1);
+			this.paySize[i/3] = Double.parseDouble(this.getFileContents(i+2));
+			
+		}
+		
+		this.noOfEmployees = (this.getLineAmmount()/3);
+		this.closeOpenFile();
 	}
 	
 	public void printEmployeeInfo() {
