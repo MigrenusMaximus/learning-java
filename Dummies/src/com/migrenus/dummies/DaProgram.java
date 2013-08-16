@@ -17,8 +17,12 @@ import java.io.IOException;
 public class DaProgram {
 	public static void main(String[] args) throws IOException {
 	
-		KeyFrame asd = new KeyFrame();
-		asd.keyGetFrame();
+		KeyOwners asd = new KeyOwners();
+		asd.assignKeysToEmployees();
+		asd.sendDataToFile();
+		
+//		KeyFrame asd = new KeyFrame();
+//		asd.keyGetFrame();
 		
 	}
 }

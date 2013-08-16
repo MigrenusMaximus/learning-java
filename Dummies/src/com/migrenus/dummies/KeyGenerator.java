@@ -70,10 +70,7 @@ public class KeyGenerator {
 	
 	public void keyToFile(String fileName) throws IOException {
 		PrintWriter to_file = new PrintWriter(new FileWriter(fileName, true)); 
-		
-		to_file.print(this.key);
-		to_file.print("\n");
-		to_file.flush();
+		to_file.println(this.key);
 		to_file.close();
 	}
 	

@@ -16,6 +16,7 @@ import java.util.Scanner;
 import java.io.File;
 import java.io.IOException;
 import java.io.FileWriter;
+import java.io.PrintStream;
 import java.io.PrintWriter;
 
 public class FileHandler {
@@ -23,6 +24,15 @@ public class FileHandler {
 	private int lineAmmount = 0;
 	private Scanner fileHandle;
 	private String fileName;
+	private boolean withOverWrite;
+	
+	public FileHandler(boolean withOverWrite) {
+		this.withOverWrite = withOverWrite;
+	}
+	
+	public FileHandler() {
+		this.withOverWrite = false;
+	}
 	
 	public String getFileContents(int placeInArray) {
 		return fileContents[placeInArray];
@@ -71,16 +81,32 @@ public class FileHandler {
 		}
 	}
 	
-	public void setLineLn(String line) throws IOException {
-		PrintWriter to_file = new PrintWriter(new FileWriter(this.fileName, true)); 
-		to_file.println(line);
-		to_file.close();
+	public void setLineLn(String line, boolean firstLine) throws IOException {
+		
+		if (this.withOverWrite == false || firstLine == false) {
+			PrintWriter to_file = new PrintWriter(new FileWriter(this.fileName, true)); 
+			to_file.println(line);
+			to_file.close();
+		} else {
+			PrintStream to_file = new PrintStream(this.fileName);
+			to_file.println(line);
+			to_file.close();
+		}
+		
 	}
 	
-	public void setLine(String line) throws IOException {
-		PrintWriter to_file = new PrintWriter(new FileWriter(this.fileName, true)); 
-		to_file.print(line);
-		to_file.close();
+	public void setLine(String line, boolean firstLine) throws IOException {
+		
+		if (this.withOverWrite == false || firstLine == false) {
+			PrintWriter to_file = new PrintWriter(new FileWriter(this.fileName, true)); 
+			to_file.print(line);
+			to_file.close();
+		} else {
+			PrintStream to_file = new PrintStream(this.fileName);
+			to_file.print(line);
+			to_file.close();
+		}
+		
 	}
 
 }
