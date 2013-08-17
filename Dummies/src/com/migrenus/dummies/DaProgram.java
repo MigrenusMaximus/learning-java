@@ -26,8 +26,11 @@ public class DaProgram {
 //		KeyFrame asd = new KeyFrame();
 //		asd.keyGetFrame();
 		
-		EmployeeLoginFrame asd = new EmployeeLoginFrame();
-		asd.frameInit();
+//		EmployeeLoginFrame asd = new EmployeeLoginFrame();
+//		asd.frameInit();
+		
+		KeyFrame asd = new KeyFrame();
+		asd.keyGetFrame();
 		
 	}
 }

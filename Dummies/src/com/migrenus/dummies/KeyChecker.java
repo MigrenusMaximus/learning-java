@@ -6,7 +6,7 @@ package com.migrenus.dummies;
 import java.io.IOException;
 
 
-//@SuppressWarnings("unused")
+@SuppressWarnings("unused")
 public class KeyChecker {
 	
 	public boolean checkKey(String keyToCheck) throws IOException {
@@ -23,6 +23,7 @@ public class KeyChecker {
 				break;
 			} else { 
 				keyReal = false;
+				break;
 			}
 			
 		} 
