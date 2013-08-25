@@ -29,8 +29,14 @@ public class DaProgram {
 //		EmployeeLoginFrame asd = new EmployeeLoginFrame();
 //		asd.frameInit();
 		
-		KeyFrame asd = new KeyFrame();
-		asd.keyGetFrame();
+//		KeyFrame asd = new KeyFrame();
+//		asd.keyGetFrame();
+		
+		Encryptor asd = new Encryptor();
+		asd.textInput();
+//		asd.encryptionKeyGenerator();
+		asd.encryptText("VACWOIKYXHMGDEJFURQPLBNSTO");
+		asd.decryptText("VACWOIKYXHMGDEJFURQPLBNSTO");
 		
 	}
 }

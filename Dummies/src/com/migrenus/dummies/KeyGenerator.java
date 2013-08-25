@@ -39,7 +39,7 @@ public class KeyGenerator {
 				placeHolder = 0;
 				while ( !((placeHolder >= 48 && placeHolder <= 57) || 
 						(placeHolder >= 65 && placeHolder <= 90)) ) {
-					placeHolder = new Random().nextInt(122) + 1;
+					placeHolder = new Random().nextInt(90);
 				}
 				this.keyBit[i] = (char) placeHolder;
 			}
