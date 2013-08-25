@@ -11,16 +11,37 @@ public class Encryptor {
 	private char[] uppercaseAlphabet = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
 			'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 	
-	public void textInput() {
-		
-		String text;
-		
-		text = "this is some text";
+	public String getPrivateKey() {
+		return this.privateKey.toString();
+	}
+	
+	public String getDecryptedText() {
+		String text = "";
+		text = String.valueOf(this.unencryptedText);
+		return text;
+	}
+	
+	public String getEncryptedText() {
+		String text = "";
+		text = String.valueOf(this.encryptedText);
+		return text;
+	}
+	
+	public void textInputForEncryption(String text) {
 		
 		this.noOfCharsInText = text.length();
 		this.unencryptedText = new char[this.noOfCharsInText];
 		this.unencryptedText = text.toUpperCase().toCharArray();
 		this.encryptedText = new char[this.noOfCharsInText];
+		
+	}
+	
+	public void textInputForDecryption(String text) {
+		
+		this.noOfCharsInText = text.length();
+		this.encryptedText = new char[this.noOfCharsInText];
+		this.encryptedText = text.toUpperCase().toCharArray();
+		this.unencryptedText = new char[this.noOfCharsInText];
 		
 	}
 	
@@ -45,8 +66,6 @@ public class Encryptor {
 	
 	public void encryptText() {
 		
-		System.out.println(this.unencryptedText);
-		
 		for(int i = 0; i < this.noOfCharsInText; i++ ) {
 			
 			if(this.unencryptedText[i] >= 65 && this.unencryptedText[i] <= 90){
@@ -60,8 +79,6 @@ public class Encryptor {
 			}
 			
 		}
-		
-		System.out.println(this.encryptedText);
 		
 	}
 	
@@ -69,8 +86,6 @@ public class Encryptor {
 		
 		this.privateKey = privateKey.toCharArray();
 		
-		System.out.println(this.unencryptedText);
-		
 		for(int i = 0; i < this.noOfCharsInText; i++ ) {
 			
 			if(this.unencryptedText[i] >= 65 && this.unencryptedText[i] <= 90){
@@ -85,16 +100,12 @@ public class Encryptor {
 			
 		}
 		
-		System.out.println(this.encryptedText);
-		
 	}
 	
 	public void decryptText(String privateKey) {
 		
 		this.privateKey = privateKey.toCharArray();
 		
-		System.out.println(this.encryptedText);
-		
 		for(int i = 0; i < this.noOfCharsInText; i++ ) {
 			
 			if(this.encryptedText[i] >= 65 && this.encryptedText[i] <= 90){
@@ -108,30 +119,6 @@ public class Encryptor {
 			}
 			
 		}
-		
-		System.out.println(this.unencryptedText);
-		
-	}
-	
-public void decryptText() {
-		
-		System.out.println(this.encryptedText);
-		
-		for(int i = 0; i < this.noOfCharsInText; i++ ) {
-			
-			if(this.encryptedText[i] >= 65 && this.encryptedText[i] <= 90){
-				
-				this.unencryptedText[i] = this.uppercaseAlphabet[findPlaceInPrivateKey(this.encryptedText[i])];
-				
-			} else {
-				
-				this.unencryptedText[i] = this.encryptedText[i];
-				
-			}
-			
-		}
-		
-		System.out.println(this.unencryptedText);
 		
 	}
 	

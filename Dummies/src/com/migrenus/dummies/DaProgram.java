@@ -32,11 +32,14 @@ public class DaProgram {
 //		KeyFrame asd = new KeyFrame();
 //		asd.keyGetFrame();
 		
-		Encryptor asd = new Encryptor();
-		asd.textInput();
+//		Encryptor asd = new Encryptor();
+//		asd.textInput("This is some text.");
 //		asd.encryptionKeyGenerator();
-		asd.encryptText("VACWOIKYXHMGDEJFURQPLBNSTO");
-		asd.decryptText("VACWOIKYXHMGDEJFURQPLBNSTO");
+//		asd.encryptText("VACWOIKYXHMGDEJFURQPLBNSTO");
+//		asd.decryptText("VACWOIKYXHMGDEJFURQPLBNSTO");
+		
+		EncryptorFrame asd = new EncryptorFrame();
+		asd.frameInit();
 		
 	}
 }
