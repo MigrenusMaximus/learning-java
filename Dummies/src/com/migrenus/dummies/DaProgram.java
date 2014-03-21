@@ -16,15 +16,6 @@ import java.io.IOException;
 @SuppressWarnings("unused")
 public class DaProgram {
 	public static void main(String[] args) throws IOException {
-	
-//		EmployeeFromFile asd = new EmployeeFromFile();
-//		asd.empDataInit();
-//		asd.assignKeysToEmployees();
-//		asd.sendDataToFile();
-//		asd.printEmployeeInfo();
-		
-//		KeyFrame asd = new KeyFrame();
-//		asd.keyGetFrame();
 		
 //		EmployeeLoginFrame asd = new EmployeeLoginFrame();
 //		asd.frameInit();
@@ -32,14 +23,22 @@ public class DaProgram {
 //		KeyFrame asd = new KeyFrame();
 //		asd.keyGetFrame();
 		
-//		Encryptor asd = new Encryptor();
-//		asd.textInput("This is some text.");
-//		asd.encryptionKeyGenerator();
-//		asd.encryptText("VACWOIKYXHMGDEJFURQPLBNSTO");
-//		asd.decryptText("VACWOIKYXHMGDEJFURQPLBNSTO");
+//		EncryptorFrame asd = new EncryptorFrame();
+//		asd.frameInit();
 		
-		EncryptorFrame asd = new EncryptorFrame();
-		asd.frameInit();
+		EncryptorV2 novo = new EncryptorV2();
+//		novo.inputText = "I like cookies";
+//		novo.textInputForEncryption();
+//		novo.encryptText("PumpWYndo57xThRNr3O690Mbck4BvV28Hyq1zXDwJiSICUjlEeKsgQAa tLFZf6");
+//		novo.getEncryptedText();
+		novo.outputText = "oPwXJ1Y1EejUSt";
+		novo.textInputForDecryption();
+		novo.decryptText("PumpWYndo57xThRNr3O690Mbck4BvV28Hyq1zXDwJiSICUjlEeKsgQAa tLFZf6");
+		
+//		you can use this private key for testing
+//		PumpWYndo57xThRNr3O690Mbck4BvV28Hyq1zXDwJiSICUjlEeKsgQAa tLFZf6
+		
+//		5BuiIUDld KEjshCSrQeesZMt6fta
 		
 	}
 }
